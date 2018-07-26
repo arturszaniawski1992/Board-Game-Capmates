@@ -10,6 +10,8 @@ import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.capgemini.boardgamecapmates.dto.UpdateProfilTo;
+import com.capgemini.boardgamecapmates.enums.Level;
 import com.capgemini.boardgamecapmates.mappers.ProfileMapper;
 import com.capgemini.boardgamecapmates.repository.UserDao;
 
@@ -45,14 +47,16 @@ public class ProfileDaoTest {
 		assertNull(id);
 	}
 
-	/*
-	 * @Test public void shouldUpdateProfile() { // given UpdateProfilTo
-	 * updateProfileTo = new UpdateProfilTo(1L, "Artur", "Artur", "Artur",
-	 * "Artur", "Artur", Level.AMATEUR, 0.0); // when
-	 * ProfileDao.update(updateProfileTo); // then assertEquals("daniel@mak.pl",
-	 * ProfileDao.getProfiles().get(updateProfileTo.getId()).getMail());
-	 * assertEquals(null,
-	 * ProfileDao.getProfiles().get(updateProfileTo.getId()).getFirstname()); }
-	 */
+	@Test
+	public void shouldUpdateProfile() {
+		// given
+		UpdateProfilTo updateProfileTo = new UpdateProfilTo(1L, "Artur", "Artur", "Artur", "Artur", "Artur",
+				Level.AMATEUR, 0.0);
+		// when
+		ProfileDao.update(updateProfileTo);
+		// then
+		assertEquals("dasda@o2.pl", ProfileDao.getProfiles().get(updateProfileTo.getId()).getMail());
+		assertEquals(null, ProfileDao.getProfiles().get(updateProfileTo.getId()).getFirstname());
+	}
 
 }
