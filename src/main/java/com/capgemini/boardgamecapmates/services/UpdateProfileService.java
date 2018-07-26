@@ -15,6 +15,9 @@ public class UpdateProfileService implements UptadeProfile {
 		this.profile = profile;
 	}
 
+	/*
+	 * The method used to update the player's profile.
+	 */
 	@Override
 	public void updateProfile(UpdateProfilTo updateProfileTo) {
 		profile.update(updateProfileTo);

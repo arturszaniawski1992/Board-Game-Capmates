@@ -46,11 +46,6 @@ public class GameDao implements UserGamesDao {
 
 	}
 
-	/**
-	 * Gets the set of games.
-	 * 
-	 * @return A set representing the avaiable games.
-	 */
 	public Set<GameEntity> getGames() {
 		return games;
 	}
@@ -71,24 +66,16 @@ public class GameDao implements UserGamesDao {
 
 	}
 
-	
-
 	@Override
 	public Set<GameEntity> returnGamaesOfUser(ProfileEntity profileEntity) {
 		return games;
 	}
 
-	/*
-	 * A method to remove a game from a set of games.
-	 */
 	@Override
 	public void deleteGame(GameEntity gameEntity) {
 		games.remove(gameEntity);
 	}
 
-	/*
-	 * A method that adds a game to the game collection.
-	 */
 	@Override
 	public void addNewGame(GameEntity gameEntity) {
 		games.add(gameEntity);
@@ -102,10 +89,6 @@ public class GameDao implements UserGamesDao {
 		return foundGameType;
 	}
 
-	/*
-	 * The method that returns the game based on its name and the maximum and
-	 * minimum number of players.
-	 */
 	@Override
 	public GameEntity getGame(String name, int minimumNumberOfPlayers, int maximumNumberOfPlayers) {
 		for (GameEntity game : games) {

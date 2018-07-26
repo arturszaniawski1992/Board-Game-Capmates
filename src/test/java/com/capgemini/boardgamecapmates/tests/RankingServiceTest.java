@@ -1,6 +1,6 @@
 package com.capgemini.boardgamecapmates.tests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -11,14 +11,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.capgemini.boardgamecapmates.dto.LoginWithStatisticsTo;
 import com.capgemini.boardgamecapmates.dto.RankingTo;
 import com.capgemini.boardgamecapmates.enums.Level;
-import com.capgemini.boardgamecapmates.mappers.StatisticMapper;
 import com.capgemini.boardgamecapmates.services.RankingService;
 import com.capgemini.boardgamecapmates.services.SortRankingService;
 

@@ -10,7 +10,9 @@ import com.capgemini.boardgamecapmates.dto.LoginWithStatisticsTo;
 import com.capgemini.boardgamecapmates.interfaces.SortRanking;
 @Service
 public class SortRankingService implements SortRanking {
-	
+	/*
+	 * Sorting method for the Ranking List.
+	 */
 	@Override
 	public List<LoginWithStatisticsTo> sortRankingList(List<LoginWithStatisticsTo> loginsWithStats) {
 

@@ -22,6 +22,9 @@ public class RankingService implements RankingServiceDao {
         this.sortRankingService = sortRankingService;
     }
 
+	/*
+	 * The method giving the ranking for the player with the given id.
+	 */
     @Override
     public RankingTo getRanking(Long Id, List<LoginWithStatisticsTo> loginsWithStats) {
         loginsWithStats = sortRankingService.sortRankingList(loginsWithStats);
