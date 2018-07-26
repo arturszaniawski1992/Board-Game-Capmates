@@ -8,5 +8,6 @@ public class BaordgamecapmatesApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BaordgamecapmatesApplication.class, args);
+		
 	}
 }

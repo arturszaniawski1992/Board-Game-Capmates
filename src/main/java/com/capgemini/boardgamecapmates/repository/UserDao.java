@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Repository;
 
+import com.capgemini.boardgamecapmates.aspect.TrackTime;
 import com.capgemini.boardgamecapmates.dto.ProfileTo;
 import com.capgemini.boardgamecapmates.dto.UpdateProfilTo;
 import com.capgemini.boardgamecapmates.entity.ProfileEntity;
@@ -40,6 +41,7 @@ public class UserDao implements ProfileDao {
 		this.players = players;
 	}
 
+	@TrackTime
 	@Override
 	public void update(UpdateProfilTo updateProfilTo) {
 
@@ -53,6 +55,7 @@ public class UserDao implements ProfileDao {
 
 	}
 
+	@TrackTime
 	@Override
 	public Long getIdByEmail(String email) {
 		for (ProfileEntity player : players.values()) {
@@ -63,12 +66,14 @@ public class UserDao implements ProfileDao {
 		return null;
 	}
 
+	@TrackTime
 	@Override
 	public void add(ProfileTo profileTo) {
 		ProfileEntity profileEntity = ProfileMapper.mapEntity(profileTo);
 		players.put(profileEntity.getId(), profileEntity);
 	}
 
+	@TrackTime
 	@Override
 	public ProfileTo get(Long id) {
 		return ProfileMapper.mapTo(players.get(id));

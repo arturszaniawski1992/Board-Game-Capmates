@@ -1,4 +1,4 @@
-package com.capgemini.baordgamecapmates.rankingsandprofiles.baordgamecapmates;
+package com.capgemini.boardgamecapmates.tests;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
