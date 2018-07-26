@@ -1,4 +1,4 @@
-package com.capgemini.baordgamecapmates.rankingsandprofiles.baordgamecapmates;
+package com.capgemini.boardgamecapmates;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

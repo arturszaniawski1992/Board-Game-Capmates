@@ -1,7 +1,7 @@
-package com.capgemini.boardgamecapmates.player;
+package com.capgemini.boardgamecapmates.enums;
+
 
 public enum Level {
-
 	BEGINNER(1), AMATEUR(2), NOVICE(3), PROFESSIONAL(4), WORLD_CLASS(5), LEGENDARY(6);
 
 	private final int value;

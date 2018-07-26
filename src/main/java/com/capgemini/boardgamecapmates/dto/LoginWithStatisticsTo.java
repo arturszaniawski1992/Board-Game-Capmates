@@ -1,27 +1,27 @@
-package com.capgemini.boardgamecapmates.dao;
+package com.capgemini.boardgamecapmates.dto;
 
-import com.capgemini.boardgamecapmates.player.Level;
+import com.capgemini.boardgamecapmates.enums.Level;
 
-public class LoginWithStatistics {
-	private Long Id;
+public class LoginWithStatisticsTo {
+	private Long userId;
 	private String login;
 	private Level level;
 	private double points;
-	
-	public LoginWithStatistics(Long id, String login, Level level, double points) {
+
+	public LoginWithStatisticsTo(Long userId, String login, Level level, double points) {
 		super();
-		Id = id;
+		this.userId = userId;
 		this.login = login;
 		this.level = level;
 		this.points = points;
 	}
 
-	public Long getId() {
-		return Id;
+	public Long getUserId() {
+		return userId;
 	}
 
-	public void setId(Long id) {
-		Id = id;
+	public void setUserId(Long userId) {
+		this.userId = userId;
 	}
 
 	public String getLogin() {
@@ -47,7 +47,5 @@ public class LoginWithStatistics {
 	public void setPoints(double points) {
 		this.points = points;
 	}
-	
-	
-	
+
 }

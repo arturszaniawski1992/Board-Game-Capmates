@@ -1,25 +1,25 @@
-package com.capgemini.boardgamecapmates.dao;
+package com.capgemini.boardgamecapmates.entity;
 
-import com.capgemini.boardgamecapmates.player.Level;
+import com.capgemini.boardgamecapmates.enums.Level;
 
 public class StatisticEntity {
-	private Long id;
+	private Long Id;
 	private Level level;
 	private double points;
 
 	public StatisticEntity(Long id, Level level, double points) {
 		super();
-		this.id = id;
+		Id = id;
 		this.level = level;
 		this.points = points;
 	}
 
 	public Long getId() {
-		return id;
+		return Id;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		Id = id;
 	}
 
 	public Level getLevel() {
