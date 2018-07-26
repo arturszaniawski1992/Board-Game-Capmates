@@ -15,6 +15,9 @@ import com.capgemini.boardgamecapmates.interfaces.UserGamesDao;
 @Repository
 public class GameDao implements UserGamesDao {
 
+	/*
+	 * Constructor taking over a collection of available games.
+	 */
 	public GameDao() {
 	}
 
@@ -43,6 +46,11 @@ public class GameDao implements UserGamesDao {
 
 	}
 
+	/**
+	 * Gets the set of games.
+	 * 
+	 * @return A set representing the avaiable games.
+	 */
 	public Set<GameEntity> getGames() {
 		return games;
 	}
@@ -51,6 +59,7 @@ public class GameDao implements UserGamesDao {
 		this.games = games;
 	}
 
+	@Override
 	public boolean isGameInSetOfGames(Set<GameEntity> games, GameEntity gameEntity) {
 		for (GameEntity game : games) {
 			if (game.equals(gameEntity)) {
@@ -62,41 +71,50 @@ public class GameDao implements UserGamesDao {
 
 	}
 
+	
+
 	@Override
 	public Set<GameEntity> returnGamaesOfUser(ProfileEntity profileEntity) {
 		return games;
 	}
 
+	/*
+	 * A method to remove a game from a set of games.
+	 */
 	@Override
 	public void deleteGame(GameEntity gameEntity) {
 		games.remove(gameEntity);
 	}
 
+	/*
+	 * A method that adds a game to the game collection.
+	 */
 	@Override
 	public void addNewGame(GameEntity gameEntity) {
 		games.add(gameEntity);
 	}
 
+	public GameEntity findGameType(GameEntity GameEntityWithName) {
+
+		GameEntity foundGameType = games.stream().filter(x -> GameEntityWithName.getName().equals(x.getName()))
+				.findFirst().orElse(null);
+
+		return foundGameType;
+	}
+
 	/*
-	 * public Set<GameEntity> returnListGame(UserEntity user) throws Exception {
-	 * if (user.getId() == 1) { return listGameUserOne; } else if (user.getId()
-	 * == 2) { return listGameUserTwo; } else if (user.getId() == 3) { return
-	 * listGameUserThree; } else throw new Exception(
-	 * "This user don't have list of games."); }
-	 * 
-	 * public Set<GameEntity> deleteGame(UserEntity user, GameEntity game)
-	 * throws Exception { Set<GameEntity> setGame = returnListGame(user); for
-	 * (GameEntity gm : setGame) { if (game.getName().equals(gm.getName()))
-	 * setGame.remove(game); } return setGame; }
-	 * 
-	 * public Set<GameEntity> addNewGame(UserEntity user, GameEntity game)
-	 * throws Exception {
-	 * 
-	 * Set<GameEntity> setGame = returnListGame(user); int count = 0; for
-	 * (GameEntity gm : setGame) { if (gm.getName().equals(game.getName())) {
-	 * setGame.add(game); break; } else { ++count; } } if (count ==
-	 * setGame.size()) { GameEntity newGame = new GameEntity("Chinese", 5);
-	 * setGame.add(game); } return setGame;
+	 * The method that returns the game based on its name and the maximum and
+	 * minimum number of players.
 	 */
+	@Override
+	public GameEntity getGame(String name, int minimumNumberOfPlayers, int maximumNumberOfPlayers) {
+		for (GameEntity game : games) {
+			if (game.getName().equals(name) && game.getMinimumNumberOfPlayers() == minimumNumberOfPlayers
+					&& game.getMaximumNumberOfPlayers() == maximumNumberOfPlayers) {
+				return game;
+			}
+		}
+		return null;
+	}
 
 }

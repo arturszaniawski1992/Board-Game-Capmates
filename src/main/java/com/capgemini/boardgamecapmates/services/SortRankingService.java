@@ -4,12 +4,13 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.capgemini.boardgamecapmates.aspect.TrackTime;
+import org.springframework.stereotype.Service;
+
 import com.capgemini.boardgamecapmates.dto.LoginWithStatisticsTo;
 import com.capgemini.boardgamecapmates.interfaces.SortRanking;
-
+@Service
 public class SortRankingService implements SortRanking {
-	@TrackTime
+	
 	@Override
 	public List<LoginWithStatisticsTo> sortRankingList(List<LoginWithStatisticsTo> loginsWithStats) {
 
