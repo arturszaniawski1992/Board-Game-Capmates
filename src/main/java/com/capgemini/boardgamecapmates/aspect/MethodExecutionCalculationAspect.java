@@ -20,7 +20,7 @@ public class MethodExecutionCalculationAspect {
 
         Object proceed = joinPoint.proceed();
         long timeTaken = System.currentTimeMillis() - startTime;
-        logger.info("Time Taken by {} is {}", joinPoint, timeTaken);
+        logger.info("It works!!!!! Time Taken by {} is {}", joinPoint, timeTaken);
         return proceed;
     }
 }

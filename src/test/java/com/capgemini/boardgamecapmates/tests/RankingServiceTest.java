@@ -11,19 +11,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.capgemini.boardgamecapmates.dto.LoginWithStatisticsTo;
 import com.capgemini.boardgamecapmates.dto.RankingTo;
 import com.capgemini.boardgamecapmates.enums.Level;
+import com.capgemini.boardgamecapmates.mappers.StatisticMapper;
 import com.capgemini.boardgamecapmates.services.RankingService;
 import com.capgemini.boardgamecapmates.services.SortRankingService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RankingServiceTest {
-
+	
 	private List<LoginWithStatisticsTo> players = new ArrayList<>();
 
 	@Mock
