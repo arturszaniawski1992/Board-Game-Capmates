@@ -24,6 +24,14 @@ public class ProfileTo {
 		this.level = level;
 		this.points = points;
 	}
+	
+	
+
+	public ProfileTo() {
+		super();
+	}
+
+
 
 	public long getId() {
 		return id;

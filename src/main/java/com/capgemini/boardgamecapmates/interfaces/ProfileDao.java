@@ -1,5 +1,6 @@
 package com.capgemini.boardgamecapmates.interfaces;
 
+import java.util.List;
 import java.util.Map;
 
 import com.capgemini.boardgamecapmates.dto.ProfileTo;
@@ -55,5 +56,8 @@ public interface ProfileDao {
 	 * @param String email
 	 */
 	public Long getIdByEmail(String email);
+
+	public void removeById(Long id);
+
 
 }

@@ -30,7 +30,7 @@ public class ProfileDaoTest {
 	public void shouldGetIdWhenGivenEmail() {
 		// given
 		String email = "ar@gmail.com";
-		Long expectedId = null;
+		Long expectedId = 1L;
 		// when
 		Long id = ProfileDao.getIdByEmail(email);
 		// then

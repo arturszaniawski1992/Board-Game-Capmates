@@ -18,17 +18,18 @@ import com.capgemini.boardgamecapmates.mappers.ProfileMapper;
 public class UserDao implements ProfileDao {
 
 	private Map<Long, ProfileEntity> players = new HashMap<>();
+	
 
 	@PostConstruct
 	public void initializer() {
 
-		players.put(1L, new ProfileEntity(1L, "Artur", "Artur", "1234", "ar@gmail.com", "motto", Level.BEGINNER, 0));
-		players.put(2L, new ProfileEntity(2L, "Artur", "Artur", "1234", "21@gmail.com", "motto", Level.BEGINNER, 0));
+		players.put(1L, new ProfileEntity(1L, "Artur", "Artur", "1234", "ar@gmail.com", "motto", Level.BEGINNER, 10.0));
+		players.put(2L, new ProfileEntity(2L, "Adam", "Artur", "1234", "21@gmail.com", "motto", Level.BEGINNER, 0));
 		players.put(3L, new ProfileEntity(3L, "Artur", "Artur", "1234", "sda@gmail.com", "motto", Level.BEGINNER, 0));
-		players.put(4L, new ProfileEntity(4L, "Artur", "Artur", "1234", "xcv@gmail.com", "motto", Level.BEGINNER, 0));
-		players.put(5L, new ProfileEntity(5L, "Artur", "Artur", "1234", "qqw@gmail.com", "motto", Level.BEGINNER, 0));
-		players.put(6L, new ProfileEntity(6L, "Artur", "Artur", "1234", "eer@gmail.com", "motto", Level.BEGINNER, 0));
-		players.put(7L, new ProfileEntity(7L, "Artur", "Artur", "1234", "tv@gmail.com", "motto", Level.BEGINNER, 0));
+		players.put(4L, new ProfileEntity(4L, "Ewa", "Artur", "1234", "xcv@gmail.com", "motto", Level.BEGINNER, 0));
+		players.put(5L, new ProfileEntity(5L, "Ania", "Artur", "1234", "qqw@gmail.com", "motto", Level.BEGINNER, 0));
+		players.put(6L, new ProfileEntity(6L, "Marta", "Artur", "1234", "eer@gmail.com", "motto", Level.BEGINNER, 0));
+		players.put(7L, new ProfileEntity(7L, "Karol", "Artur", "1234", "tv@gmail.com", "motto", Level.BEGINNER, 0));
 
 	}
 
@@ -53,7 +54,6 @@ public class UserDao implements ProfileDao {
 
 	}
 
-	
 	@Override
 	public Long getIdByEmail(String email) {
 		for (ProfileEntity player : players.values()) {
@@ -67,7 +67,7 @@ public class UserDao implements ProfileDao {
 	@Override
 	public void add(ProfileTo profileTo) {
 		ProfileEntity profileEntity = ProfileMapper.mapEntity(profileTo);
-		players.put(profileEntity.getId(), profileEntity);
+		players.put(profileTo.getId(), profileEntity);
 	}
 
 	@Override
@@ -88,6 +88,10 @@ public class UserDao implements ProfileDao {
 		players.put(profileEntity.getId(), profileEntity);
 	}
 
+	@Override
+	public void removeById(Long id) {
+		this.players.remove(id);
+	}
 
-
+	
 }
