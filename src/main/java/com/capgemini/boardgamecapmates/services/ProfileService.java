@@ -25,7 +25,7 @@ public class ProfileService implements UptadeProfile {
 		this.profile = profile;
 	}
 
-	/*
+	/**
 	 * The method used to update the player's profile.
 	 */
 	@Override
@@ -47,6 +47,13 @@ public class ProfileService implements UptadeProfile {
 	public Map<Long, ProfileEntity> getPlayers() {
 		return profile.getProfiles();
 	}
+	
+	@Override
+	public List<ProfileTo> getPlayersList() {
+		Map<Long, ProfileEntity> players = getPlayers();
+		List<ProfileEntity> profiles = players.values().stream().collect(Collectors.toList());	
+		return mapper.convertListToDTOList(profiles);
+	}
 
 	@Override
 	public void add(ProfileTo profileTo) {
@@ -57,9 +64,15 @@ public class ProfileService implements UptadeProfile {
 	public void removeByid(Long id) {
 		profile.removeById(id);
 	}
-
+	
+	/**
+	 * Returns a list of books filtering by parameters. 
+	 * This method always returns immediately.
+	 * @param profileTo.
+	 * @return List of booksTO.
+	 */
 	@Override
-	public List<ProfileTo> findBookByParameters(ProfileTo profileTo) {
+	public List<ProfileTo> findProfileByParameters(ProfileTo profileTo) {
 
 		Map<Long, ProfileEntity> players = getPlayers();
 		List<ProfileEntity> profiles = players.values().stream().collect(Collectors.toList());
@@ -81,5 +94,7 @@ public class ProfileService implements UptadeProfile {
 		return mapper.convertListToDTOList(profiles);
 
 	}
+
+	
 
 }

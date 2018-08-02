@@ -23,9 +23,11 @@ public interface UptadeProfile {
 	public ProfileTo get(Long id);
 
 	public Map<Long, ProfileEntity> getPlayers();
+	
+	public List<ProfileTo> getPlayersList();
 
 	public void removeByid(Long id);
 
-	public List<ProfileTo> findBookByParameters(ProfileTo profileTo);
+	public List<ProfileTo> findProfileByParameters(ProfileTo profileTo);
 
 }
